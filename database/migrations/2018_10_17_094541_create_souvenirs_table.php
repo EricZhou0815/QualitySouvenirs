@@ -15,8 +15,20 @@ class CreateSouvenirsTable extends Migration
     {
         Schema::create('souvenirs', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->decimal('price',8,2);
+            $table->string('pathOfImage');
+            $table->string('address');
             $table->timestamps();
         });
+
+        DB::table('souvenirs')->insert(
+            array(
+                'email' => 'name@domain.com',
+                'verified' => true
+            )
+        );
     }
 
     /**
